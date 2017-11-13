@@ -49,25 +49,58 @@ public class ProductManagerImpl implements ProductManager {
     //Ordenar productos por número de ventas
 
     private List<Producto> sortProductosByNumeroventas(List<Producto> productos){
-        productos.sort(Comparator.comparing(Producto::getNumeroventas));
+        productos.reverseOrder.sort(Comparator.comparing(Producto::getNumeroventas));
         return productos;
+    }
+
+    //Listado pedidos de usuario
+
+    private List<Pedido> Listapedidos(Usuario u){
+        u.getPedidos();
     }
 
     //Servir pedido
 
     boolean edit(Producto p){
 
-        if(p.getservido() = true){
+        p.setServido();
+        return true;
+
+        /* if(p.getServido() = true){
             return true;
         }
 
         else{
-            map.put(p.getservido(), p);
+            map.put(p.getServido(), p);
+            return true;
+        } */
+    }
+
+    //set usuario
+
+    public boolean set(Usuario u) {
+        logger.info("set: Creating user: "+u.getId()+" ...");
+
+        if(doExist(u.getId())) {
+            logger.warn("set: User: "+u.getName()+" already exists");
+            return false;
+        }
+
+        else {
+            map.put(u.getId(), u);
+            logger.info("set: User: "+u.getName()+" has been created!");
             return true;
         }
     }
 
+    //realizar Pedido
 
+    public boolean hacerpedidonuevo(Usuario u, Pedido pd){
 
+        u.setPedidos(u.getName()map.put(pd.getId(), pd));
+
+        //
+        return false;
+    }
 
 }

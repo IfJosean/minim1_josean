@@ -7,6 +7,10 @@ import java.util.List;
  */
 public class Usuario {
 
+    private int id;
+
+    private String name;
+
     private List<Pedido> pedidos;
 
     //Constructor
@@ -23,5 +27,21 @@ public class Usuario {
 
     public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
