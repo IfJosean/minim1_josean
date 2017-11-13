@@ -7,7 +7,9 @@ import java.util.List;
  */
 public class Pedido {
 
+    private int id;
     private List<Producto> productos;
+    boolean servido = false;
 
     //Constructor
 
@@ -23,5 +25,21 @@ public class Pedido {
 
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
+    }
+
+    public servido getServido(){
+        return servido;
+    }
+
+    public void setServido(boolean servido){
+        this.servido = true;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -12,4 +12,5 @@ public interface ProductManager {
 
     List<Producto> getAll();
     boolean set(Pedido p);
+    boolean edit(Pedido p);
 }
