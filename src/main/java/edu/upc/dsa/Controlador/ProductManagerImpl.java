@@ -7,9 +7,7 @@ import edu.upc.dsa.Modelo.Usuario;
 import edu.upc.dsa.Modelo.Pedido;
 import edu.upc.dsa.Modelo.Producto;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Josean on 13/11/2017.
@@ -20,7 +18,8 @@ public class ProductManagerImpl implements ProductManager {
 
     private static ProductManagerImpl instance = null;
     final static Logger logger = Logger.getLogger(ProductManagerImpl.class);
-    private Map<Integer, Usuario> map;
+    private Queue<Pedido> pedidos;
+    private List<Pedido> servidos;
 
     //Singleton
 
@@ -29,51 +28,71 @@ public class ProductManagerImpl implements ProductManager {
         return instance;
     }
 
+    //Constructors
+
+    public ProductManagerImpl(){
+         this.pedidos = new ArrayQueue<>();
+         this.servidos = new ArrayList<>();
+    }
+
     //Getters and Setters
 
-    public int getPrecio (int id){
+    public Queue<Pedido> getPedidos(){
+        return pedidos;
+    }
+
+    public List<Pedido> getServidos(){
+        return pedidos;
+    }
+
+    /* public int getPrecio (int id){
         return get(id).setPrecio(getPrecio());
     }
 
     public boolean getservido (int id){
         return get(id).setServido(getservido());
-    }
+    }   */
 
     //Ordenar productos por precio
 
     private List<Producto> sortProductosByPrecio(List<Producto> productos){
-        productos.sort(Comparator.comparing(Producto::getPrecio));
+        productos.sort(Comparator.comparing(Producto::getPrecio))
         return productos;
     }
 
     //Ordenar productos por número de ventas
 
     private List<Producto> sortProductosByNumeroventas(List<Producto> productos){
-        productos.reverseOrder.sort(Comparator.comparing(Producto::getNumeroventas));
+        productos.sort(Comparator.comparing(Producto::getNumeroventas));
         return productos;
     }
 
-    //Listado pedidos de usuario
-
-    private List<Pedido> Listapedidos(Usuario u){
-        u.getPedidos();
-    }
 
     //Servir pedido
 
-    boolean edit(Producto p){
+    public boolean servirpedido(){
 
-        p.setServido();
-        return true;
+       if(!pedidos.isEmpty()){
+           this.servidos.add(this.pedidos.element());
+           this.pedidos.remove();
 
-        /* if(p.getServido() = true){
-            return true;
+           return true;
+       }
+
+       else {
+           return false;
+       }
+    }
+
+    // Lista de pedidos de un usuario
+
+    public List<Pedido> getAllPedidosServidosUsuario(int usuarioid){
+        List<Pedido> temp = new ArrayList<>();
+        for(Pedido p : this.servidos){
+            if(p.getusuarioid() == usuarioid)
+                temp.add(p);
         }
-
-        else{
-            map.put(p.getServido(), p);
-            return true;
-        } */
+        return temp;
     }
 
     //set usuario
@@ -95,12 +114,11 @@ public class ProductManagerImpl implements ProductManager {
 
     //realizar Pedido
 
-    public boolean hacerpedidonuevo(Usuario u, Pedido pd){
+    public boolean hacerpedido(int usuarioid, List<Producto> productos){
 
-        u.setPedidos(u.getName()map.put(pd.getId(), pd));
+        this.pedidos.add(new Pedido(usuarioid, false, productos));
 
-        //
-        return false;
+        return true;
     }
 
 }

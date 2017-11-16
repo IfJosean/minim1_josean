@@ -1,5 +1,6 @@
 package edu.upc.dsa.Modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,39 +8,44 @@ import java.util.List;
  */
 public class Pedido {
 
-    private int id;
     private List<Producto> productos;
-    boolean servido = false;
+    private int usuarioid;
 
     //Constructor
 
-    public Pedido(List<Producto> productos){
+    public Pedido(int usuarioid, boolean servido, List<Producto> productos){
+        this.usuarioid = usuarioid;
         this.productos = productos;
     }
 
+    public Pedido(){
+        this.productos = new ArrayList<>();
+    }
+
     //Getters and Setters
+
+    public int getUsuarioid() {
+        return usuarioid;
+    }
+
+    public void setUsuarioid(int usuarioid) {
+        this.usuarioid = usuarioid;
+    }
 
     public List<Producto> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Producto> productos) {
+    public void setProductos(List<Producto> productos){
         this.productos = productos;
     }
 
-    public servido getServido(){
-        return servido;
+    public Producto getProducto(int id){
+        return this.productos.get(id);
     }
 
-    public void setServido(boolean servido){
-        this.servido = true;
+    public void setProducto(Producto producto){
+        this.productos.add(producto);
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 }

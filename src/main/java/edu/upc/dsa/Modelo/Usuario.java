@@ -7,41 +7,42 @@ import java.util.List;
  */
 public class Usuario {
 
-    private int id;
+    private int usuarioid;
 
-    private String name;
+    private String usuarioname;
 
-    private List<Pedido> pedidos;
+    private List<Pedido> usuariopedidos;
 
     //Constructor
 
-    public Usuario(List<Pedido> pedidos){
-        this.pedidos = pedidos;
+    public Usuario(int usuarioid, String usuarioname){
+        this.usuarioid = usuarioid;
+        this.usuarioname = usuarioname;
     }
 
     //Getters y Setters
 
     public List<Pedido> getPedidos() {
-        return pedidos;
+        return usuariopedidos;
     }
 
     public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
+        this.usuariopedidos = pedidos;
     }
 
     public int getId() {
-        return id;
+        return usuarioid;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.usuarioid = id;
     }
 
     public String getName() {
-        return name;
+        return usuarioname;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.usuarioname = name;
     }
 }

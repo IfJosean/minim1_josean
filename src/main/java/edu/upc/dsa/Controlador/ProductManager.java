@@ -2,6 +2,7 @@ package edu.upc.dsa.Controlador;
 
 import edu.upc.dsa.Modelo.Pedido;
 import edu.upc.dsa.Modelo.Producto;
+import edu.upc.dsa.Modelo.Usuario;
 
 import java.util.List;
 
@@ -10,7 +11,9 @@ import java.util.List;
  */
 public interface ProductManager {
 
-    List<Producto> getAll();
-    boolean set(Pedido p);
-    boolean edit(Pedido p);
+    boolean hacerpedido (int usuarioid, List<Producto> productos);
+    boolean servirpedido ();
+    List<Producto> getAllProductosByPrecio();
+    List<Pedido> getAllPedidosServidosUsuario(int usuarioid);
+    List<Producto> getAllProductosByNumeroventas
 }
