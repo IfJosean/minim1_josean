@@ -2,6 +2,7 @@ package edu.upc.dsa.Controlador;
 
 import edu.upc.dsa.Modelo.Pedido;
 import edu.upc.dsa.Modelo.Producto;
+import edu.upc.dsa.Modelo.Usuario;
 
 import javax.inject.Singleton;
 import javax.ws.rs.*;
@@ -57,4 +58,13 @@ public class ProductManagerP {
     public List<Producto> getAllProductosByNumeroventasP(){
         return getInstance().getAllProductosByNumeroventas();
     }
+
+    @POST
+    @Path("/userLogin")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Usuario loginService(Usuario u) {
+        return getInstance().login(u);
+    }
+
 }

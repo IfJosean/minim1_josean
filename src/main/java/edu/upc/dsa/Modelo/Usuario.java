@@ -11,6 +11,8 @@ public class Usuario {
 
     private String usuarioname;
 
+    private String password;
+
     private List<Pedido> usuariopedidos;
 
     //Constructor
@@ -46,3 +48,11 @@ public class Usuario {
         this.usuarioname = name;
     }
 }
+
+
+    public Usuario(int usuarioid, String usuarioname, String password) {
+                this.usuarioid = usuarioid;
+                this.usuarioname = usuarioname;
+                this.password = password;
+           }
+

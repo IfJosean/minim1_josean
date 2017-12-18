@@ -15,5 +15,6 @@ public interface ProductManager {
     boolean servirpedido ();
     List<Producto> getAllProductosByPrecio();
     List<Pedido> getAllPedidosServidosUsuario(int usuarioid);
-    List<Producto> getAllProductosByNumeroventas
+    List<Producto> getAllProductosByNumeroventas;
+    Usuario login(Usuario u);
 }

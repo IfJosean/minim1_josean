@@ -121,4 +121,9 @@ public class ProductManagerImpl implements ProductManager {
         return true;
     }
 
+
+    public Usuario login(Usuario u) {
+        return u;
+    }
+
 }
